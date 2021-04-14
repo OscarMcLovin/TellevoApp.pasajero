@@ -1,0 +1,81 @@
+<ion-header [translucent]="true"  >
+    <ion-toolbar class="hed" color="dark" class="headers">
+      <ion-title >
+        Inicio de Secion <ion-icon name="man-outline" class="boxes"></ion-icon>
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+<ion-content>
+    <ion-card >
+      <ion-card-header>
+          <ion-card-title><p class="logo"><b>TellevoApp Pasajero</b></p></ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p class="tec"><ion-icon name="car-sport-outline" class="icons"></ion-icon></p>
+      </ion-card-content>
+  </ion-card>
+  <br>
+  <br>
+  <div *ngIf="regis === '2'">
+    <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input [(ngModel)]="usuario"></ion-input>
+    </ion-item> 
+    <ion-item > 
+        <ion-label position="floating">PASSWORD</ion-label>
+        <ion-input type="password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+    <br>
+    <ion-button  (click)="login()"  class="btn" color="medium">LOG IN</ion-button>
+    <br>
+  </div>
+
+    <ion-card (click)="regoff()" color="success">
+      <ion-card-header>
+          <ion-card-title> Ya Tengo cuenta<ion-icon name="clipboard-outline" class="boxe"></ion-icon></ion-card-title>
+      </ion-card-header>
+    </ion-card>
+    <br>
+    <ion-card (click)="regon()" color="warning">
+    <ion-card-header>
+        <ion-card-title>Registrarme<ion-icon name="clipboard-outline" class="boxe"></ion-icon></ion-card-title>
+    </ion-card-header>
+    </ion-card>
+
+    <div *ngIf="regis === '1'">
+      <br>
+      <ion-item >
+        <ion-label position="floating" >id</ion-label>
+        <ion-input [(ngModel)]="person._id" ></ion-input>
+      </ion-item>    
+      <ion-item >
+      <ion-label position="floating" >Usuario</ion-label>
+      <ion-input [(ngModel)]="person.nombre" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Apellidos</ion-label>
+      <ion-input [(ngModel)]="person.apellidos"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input [(ngModel)]="person.email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input [(ngModel)]="person.password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Direccion</ion-label>
+      <ion-input [(ngModel)]="person.direccion"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Curp</ion-label>
+      <ion-input [(ngModel)]="person.curp"></ion-input>
+    </ion-item>
+    
+    <br>
+    <ion-button (click)="registrarUsuario()" (click)="agregarAlert()" class="btn" color="medium"><ion-icon name="add-circle"></ion-icon></ion-button>
+    
+    </div>
+
+</ion-content>

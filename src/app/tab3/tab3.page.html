@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+    <ion-toolbar color="dark" class="headers">
+        <ion-title>
+          TellevoApp <ion-icon name="car-sport-outline" class="boxes"></ion-icon>
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+    <ion-button (click)="logout()"class="salir" color="medium"><ion-icon name="log-out-outline"></ion-icon></ion-button>
+    <br>
+    <br>
+
+    <ion-card >
+        <ion-card-header>
+            <ion-card-title>
+                    <ion-avatar (click)="takePhoto()">
+                        <img [src]="userImage" *ngIf="!photo"/>
+                        <img [src]="photo" *ngIf="photo"/>
+                        
+
+                    </ion-avatar>
+               {{admin.nombre}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <h2><b>Nombre de usuario:</b> {{admin.nombre}} {{admin.apellidos}}</h2>
+            <h2><b>Correo electronico</b> {{admin.email}}</h2>
+            <h2><b>Direccion de usuario:</b> {{admin.direccion}}</h2>
+            <h2><b>Creacion de cuenta:</b> {{admin.created_at}}</h2>
+        </ion-card-content>
+    </ion-card>
+    <ion-card (click)="viajon()" >
+        <ion-card-header>
+            <ion-card-title>Tus viajes <ion-icon name="clipboard-outline" class="boxe"></ion-icon></ion-card-title>
+        </ion-card-header>
+    </ion-card>
+
+    <div *ngIf="viaj === true">
+        <ion-card class="headers" *ngFor="let via of viajes" color="light">
+        <ion-card-content>
+          <h2><b>Destino:</b> {{via.destino}}</h2>
+          <h2><b>Punto de partida: </b> {{via.inicio}}</h2>
+          <h2><b>Hora de viaje:</b> {{via.created_at}}</h2>
+      </ion-card-content>
+    </ion-card>
+    <ion-button (click)="viajoof()"class="btn" color="secondary"><ion-icon name="chevron-up-outline"></ion-icon></ion-button>
+    </div>
+    
+</ion-content>
